@@ -16,8 +16,8 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
 
   //password length prompt
-  
-  var prompt = prompt("How many characters would you like your password to contain?");
+
+  var prompt = window.prompt("How many characters would you like your password to contain?");
 
   //password object
 
@@ -32,7 +32,7 @@ function generatePassword() {
   //checks if length is within requirements
 
   if (password.length >= 8 && password.length <= 128) {
-    console.log(length);
+    charTypes();
   } else if (password.length < 8) {
     alert("Password length must be at least 8 characters");
   } else if (password.length > 128) {
@@ -43,12 +43,35 @@ function generatePassword() {
 
   //confirmation on character types lowercase, uppercase, numeric, and special characters
   // if none select display message that at least one must be selected
-  if (window.confirm("Click OK to confirm including special characters.")) {
-    
-  } else {
+  function charTypes(){
+      if (window.confirm("Click OK to confirm including special characters.")) {
+        password.specialChar = true;
+        console.log(password.specialChar);
+      } else {
+        password.specialChar = false;
+      }
 
+      if (window.confirm("Click OK to confirm including numeric characters.")) {
+        password.numeric = true;
+        console.log(password.numeric);
+      } else {
+        password.numeric = false;
+      }
+
+      if (window.confirm("Click OK to confirm including lowercase characters.")) {
+        password.lowercase = true;
+        console.log(password.lowercase);
+      } else {
+        password.lowercase = false;
+      }
+
+      if (window.confirm("Click OK to confirm including uppercase characters.")) {
+        password.uppercase = true;
+        console.log(password.uppercase);
+      } else {
+        password.uppercase = false;
+      }
   }
-
 
   //generates and returns password
 
