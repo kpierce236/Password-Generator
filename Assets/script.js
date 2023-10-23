@@ -22,20 +22,32 @@ function generatePassword() {
   //password object
 
     var password = {
-      length: prompt,
+      inputLength: prompt,
       specialChar: undefined,
       lowercase: undefined,
       uppercase: undefined,
       numeric: undefined
     };
 
+  //added arrays for characters
+
+  var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+  var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  var numArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+  var specialArray = ["@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"];
+  
+  // added empty arrays to store the selected characters and the randomly chosen password
+
+  var selectedChars = [];
+  var createdPassword = [];
+
   //checks if length is within requirements
 
-  if (password.length >= 8 && password.length <= 128) {
+  if (password.inputLength >= 8 && password.inputLength <= 128) {
     charTypes();
-  } else if (password.length < 8) {
+  } else if (password.inputLength < 8) {
     alert("Password length must be at least 8 characters");
-  } else if (password.length > 128) {
+  } else if (password.inputLength > 128) {
     alert("Password length must be less than 128 characters");
   } else {
     alert("Invalid input");
@@ -71,14 +83,48 @@ function generatePassword() {
       } else {
         password.uppercase = false;
       }
-  }
-  //added arrays for characters
-  var upperArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-  var lowerArray = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o",  "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-  var numArray = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-  var charArray = ["@", "#", "$", "%", "^", "&", "*", "(", ")", "-", "_", "=", "+"];
 
+      if (password.uppercase === false && password.lowercase === false && password.specialChar === false && password.numeric === false) {
+        alert("You need to select at least one character type.")
+      } else {
+        var createdPassword = developPassword();
+      }
+
+  }
+ 
   //generates and returns password
+  function developPassword() {
+    if (password.numeric){
+      selectedChars = selectedChars.concat(numArray);
+      
+    }
+    
+    if (password.uppercase){
+      selectedChars = selectedChars.concat(upperArray);
+    
+    }
+    
+    if (password.lowercase){
+      selectedChars = selectedChars.concat(lowerArray);
+    
+    }
+    
+    if (password.specialChar){
+      selectedChars = selectedChars.concat(specialArray);
+    }
+    
+    
+    for (var i = 0; i < password.inputLength; i++) {
+          
+      createdPassword.push (selectedChars[Math.floor(Math.random() * selectedChars.length)]); 
+
+      }
+
+      createdPassword = createdPassword.join("") ;
+      return createdPassword;
+      
+      
+    }
+    return createdPassword
+  }
   
-  
-}
