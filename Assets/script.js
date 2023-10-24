@@ -41,7 +41,7 @@ function generatePassword() {
   var selectedChars = [];
   var createdPassword = [];
 
-  //checks if length is within requirements
+  //checks if length of password is within requirements
 
   if (password.inputLength >= 8 && password.inputLength <= 128) {
     charTypes();
@@ -54,7 +54,6 @@ function generatePassword() {
   }
 
   //confirmation on character types lowercase, uppercase, numeric, and special characters
-  // if none select display message that at least one must be selected
   function charTypes(){
       if (window.confirm("Click OK to confirm including special characters.")) {
         password.specialChar = true;
@@ -84,6 +83,7 @@ function generatePassword() {
         password.uppercase = false;
       }
 
+      // if no character types are selected then it displays an alert else it runs the developPassword function and stores it in a variable
       if (password.uppercase === false && password.lowercase === false && password.specialChar === false && password.numeric === false) {
         alert("You need to select at least one character type.")
       } else {
@@ -113,13 +113,14 @@ function generatePassword() {
       selectedChars = selectedChars.concat(specialArray);
     }
     
-    
+    //for the given characters in the selectedChar array it selects characters and pushs them to the createdPassword array
     for (var i = 0; i < password.inputLength; i++) {
           
       createdPassword.push (selectedChars[Math.floor(Math.random() * selectedChars.length)]); 
 
       }
 
+      //makes the array of characters into a string and returns the value
       createdPassword = createdPassword.join("") ;
       return createdPassword;
       
