@@ -57,28 +57,24 @@ function generatePassword() {
   function charTypes(){
       if (window.confirm("Click OK to confirm including special characters.")) {
         password.specialChar = true;
-        console.log(password.specialChar);
       } else {
         password.specialChar = false;
       }
 
       if (window.confirm("Click OK to confirm including numeric characters.")) {
         password.numeric = true;
-        console.log(password.numeric);
       } else {
         password.numeric = false;
       }
 
       if (window.confirm("Click OK to confirm including lowercase characters.")) {
         password.lowercase = true;
-        console.log(password.lowercase);
       } else {
         password.lowercase = false;
       }
 
       if (window.confirm("Click OK to confirm including uppercase characters.")) {
         password.uppercase = true;
-        console.log(password.uppercase);
       } else {
         password.uppercase = false;
       }
