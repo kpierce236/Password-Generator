@@ -2,7 +2,7 @@
 
 ## Description
 
-In this project I added the functionailty with JavaScript to make the appilcation usable. I used my knowledge of basic JavaScript to finish the '''generatePassword()''' function. I created multiple variables, arrays, and objects for the data structuring, as well as functtions, methods, for loops, and conditional statements for the manipulating the data and adding functionality to the application.
+In this project I added the functionailty with JavaScript to make the appilcation usable. I used my knowledge of basic JavaScript to finish the ``` generatePassword() ``` function. I created multiple variables, arrays, and objects for the data structuring, as well as functtions, methods, for loops, and conditional statements for the manipulating the data and adding functionality to the application.
 
 ### Take-Aways
 
